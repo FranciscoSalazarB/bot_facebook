@@ -1,7 +1,7 @@
 import json
 from bot.browser import create_browser
 from bot.auth import load_cookies, save_cookies, login
-from bot.actions import like_post
+from bot.actions import like_post, comment_post, human_delay
 import config
 
 def main():
@@ -23,6 +23,8 @@ def main():
         print("Sesión cargada desde cookies")
 
     like_post(page, config.POST_URL)
+    human_delay()
+    comment_post(page, config.COMMENTS)
 
     browser.close()
     p.stop()
