@@ -1,4 +1,8 @@
-POST_URL = "https://www.facebook.com/XXX"
+POSTS = [
+    "https://www.facebook.com/post1",
+    "https://www.facebook.com/post2",
+    "https://www.facebook.com/post3"
+]
 HEADLESS = False
 COMMENTS = [
     "🔥 Buen post",

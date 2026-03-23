@@ -22,9 +22,23 @@ def main():
     else:
         print("Sesión cargada desde cookies")
 
-    like_post(page, config.POST_URL)
-    human_delay()
-    comment_post(page, config.COMMENTS)
+    # 🔥 LOOP MULTI-POST
+    for i, post_url in enumerate(config.POSTS):
+        print(f"\n--- Procesando post {i+1} ---")
+
+        try:
+            like_post(page, post_url)
+            human_delay(3, 8)
+
+            comment_post(page, config.COMMENTS)
+            human_delay(10, 25)
+
+        except Exception as e:
+            print(f"Error en post: {e}")
+
+    print("\n✅ Todos los posts procesados")
+
+    input("Presiona ENTER para cerrar...")
 
     browser.close()
     p.stop()
